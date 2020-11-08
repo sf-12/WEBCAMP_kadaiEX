@@ -1,29 +1,30 @@
-<a href='/'>Bookers</a>
-
-<li>
-  <%= link_to "Home", root_path %>
-</li>
-<!-- ログインしているか否かで場合分け-->
-<% if user_signed_in? %>
-  <!-- ログイン時 -->
+<div class='navbar'>
+  <a href='/'>Bookers</a>
   <li>
-    <%= link_to "Users", "#" %>
+    <%= link_to "Home", root_path %>
   </li>
-  <li>
-    <%= link_to "Books", "#" %>
-  </li>
-  <li>
-    <%= link_to "logout", destroy_user_session_path, method: :delete %>
-  </li>
-<% else %>
-  <!-- ログアウト時 -->
-  <li>
-    <%= link_to "About", about_path %>
-  </li>
-  <li>
-    <%= link_to "sign up", new_user_registration_path %>
-  </li>
-  <li>
-    <%= link_to "login", new_user_session_path %>
-  </li>
-<% end %>
+  <!-- ログインしているか否かで場合分け-->
+  <% if user_signed_in? %>
+    <!-- ログイン時 -->
+    <li>
+      <%= link_to "Users", "#" %>
+    </li>
+    <li>git
+      <%= link_to "Books", "#" %>
+    </li>
+    <li>
+      <%= link_to "logout", destroy_user_session_path, method: :delete %>
+    </li>
+  <% else %>
+    <!-- ログアウト時 -->
+    <li>
+      <%= link_to "About", about_path %>
+    </li>
+    <li>
+      <%= link_to "sign up", new_user_registration_path %>
+    </li>
+    <li>
+      <%= link_to "login", new_user_session_path %>
+    </li>
+  <% end %>
+</div>
