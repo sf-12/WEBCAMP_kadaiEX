@@ -3,7 +3,18 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
+  # バリデーション設定
+  validates :name,          presence: true              # 空欄でないこと
+  validates :name,          length: { minimum: 2 }      # 2文字以上
+  validates :name,          length: { maximum: 20 }     # 20文字以下
+  validates :name,          uniqueness: true            # 一意であること
+  validates :introduction,  length: { maximum: 50 }     # 50文字以下
+
+
   # Bookモデルと関連づける
   has_many :books, dependent: :destroy
+
+  # refile用の設定
+  attachment :profile_image
 end
