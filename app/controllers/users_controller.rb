@@ -4,7 +4,6 @@ class UsersController < ApplicationController
   end
 
   def show
-    @book = Book.new
     @books = Book.where(user_id: params[:id])
   end
 
@@ -13,8 +12,12 @@ class UsersController < ApplicationController
   end
 
   def update
-    if current_user.update(user_params)
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = 'You have updated user successfully.'
       redirect_to user_path(params[:id])
+    else
+      render :edit
     end
   end
 

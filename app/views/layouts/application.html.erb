@@ -14,7 +14,9 @@
       <%= render 'layouts/header' %>
     </header>
     <main>
-      <p id='notice'></p>
+      <p id='notice'>
+        <%= render 'layouts/notifications' %>
+      </p>
       <%= yield %>
     </main>
     <footer>

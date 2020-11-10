@@ -1,0 +1,13 @@
+<!-- エラーメッセージ -->
+<div class='error_explanation'>
+  <% if value.errors.any? %>
+    <h3><%= value.errors.count %> error prohibited this obj from being saved:</h3>
+    <ul>
+    <% value.errors.full_messages.each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+    <% end %>
+    </ul>
+  <% end %>
+</div>
