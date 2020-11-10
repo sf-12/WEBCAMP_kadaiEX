@@ -2,7 +2,7 @@
   <div class='row'>
     <!--サイドカラム-->
     <div class='col-md-3'>
-      <%= render 'layouts/sidebar', user:current_user, book: @book %>
+      <%= render 'layouts/sidebar', user:current_user, book: @newbook %>
     </div>
     <!--メインカラム-->
     <div class='col-md-8 offset-md-1'>
@@ -19,24 +19,15 @@
           </tr>
         </thead>
         <!-- テーブル中身 -->
-        <% @books.each do |book| %>
           <tbody>
             <tr>
               <td>
-
               </td>
-              <td>
-                <%= book.title %>
-              </td>
-              <td>
-                <%= book.body %>
-              </td>
+              <td><%= @book.title %></td>
+              <td><%= @book.body %></td>
             </tr>
           </tbody>
-        <% end %>
       </table>
     </div>
   </div>
 </div>
-
-
