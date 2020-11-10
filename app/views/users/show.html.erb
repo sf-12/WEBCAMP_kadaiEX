@@ -26,7 +26,11 @@
                     <%= attachment_image_tag current_user, :profile_image, size:'40x40', fallback: "no_image.jpg" %>
                   <% end %>
                 </td>
-                <td><%= book.title %></td>
+                <td>
+                  <%= link_to book_path(book) do %>
+                    <%= book.title %>
+                  <% end %>
+                </td>
                 <td><%= book.body %></td>
             </tr>
           <% end %>
