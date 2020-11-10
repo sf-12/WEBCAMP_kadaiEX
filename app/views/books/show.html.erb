@@ -2,7 +2,7 @@
   <div class='row'>
     <!--サイドカラム-->
     <div class='col-md-3'>
-      <%= render 'layouts/sidebar', user:current_user, book: @newbook %>
+      <%= render 'layouts/sidebar', user: @user, book: @newbook %>
     </div>
     <!--メインカラム-->
     <div class='col-md-8 offset-md-1'>
@@ -27,16 +27,19 @@
               <td>
                 <%= @book.body %>
               </td>
-              <td>
-                <%= link_to edit_book_path(@book) do %>
-                  <div class='btn btn-success'>Edit</div>
-                <% end %>
-              </td>
-              <td>
-                <%= link_to book_path(@book), method: :delete do %>
-                  <div class='btn btn-danger'>Destroy</div>
-                <% end %>
-              </td>
+              <!-- 本人の投稿の場合だけ編集・削除ができる -->
+              <% if @book.user_id == current_user.id %>
+                <td>
+                  <%= link_to edit_book_path(@book) do %>
+                    <div class='btn btn-success'>Edit</div>
+                  <% end %>
+                </td>
+                <td>
+                  <%= link_to book_path(@book), method: :delete do %>
+                    <div class='btn btn-danger'>Destroy</div>
+                  <% end %>
+                </td>
+              <% end %>
             </tr>
           </tbody>
       </table>

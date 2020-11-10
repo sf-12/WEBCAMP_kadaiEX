@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  # アクセス制限
+  before_action :authenticate_user!,except: [:top, :about]
+
   # devise使用時にメソッドを呼ぶ
   before_action :configure_permitted_parameters, if: :devise_controller?
 
