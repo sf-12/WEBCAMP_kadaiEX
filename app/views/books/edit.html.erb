@@ -3,20 +3,24 @@
     <div class='col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto'>
       <h1>Editing Book</h1>
 
-      <%= form_with model: @book, url: books_path, local: true do |f| %>
+      <%= form_with model: @book, local: true do |f| %>
         <div class="form-group">
           <label for="book_title">Title</label>
-          <input type="text" class="form-control" id="book_title" name='book[title]'>
+          <input type="text" class="form-control" id="book_title" name='book[title]' value=<%= @book.title %> >
         </div>
 
         <div class="form-group">
           <label for="book_opinion">Opinion</label>
-          <textarea class="form-control" id="book_opinion" name='book[body]'></textarea>
+          <textarea class="form-control" id="book_opinion" name='book[body]' ><%= @book.body %></textarea>
         </div>
 
-        <button type="submit" class="btn btn-success">Update Book</button>
+        <div class="form-group">
+          <button type="submit" class="btn btn-success">Update Book</button>
+        </div>
       <% end %>
-
+      <%= link_to 'Show', book_path(@book) %>
+      |
+      <%= link_to 'Back', books_path %>
     </div>
   </div>
 </div>
