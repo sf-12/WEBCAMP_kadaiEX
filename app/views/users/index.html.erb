@@ -7,7 +7,7 @@
     <!--メインカラム-->
     <div class='col-md-8 offset-md-1'>
 
-      <!-- 書籍一覧テーブル -->
+      <!-- ユーザ一覧テーブル -->
       <h2>Users</h2>
       <table class='table table-hover table-inverse'>
         <!-- テーブルタイトル -->
@@ -27,6 +27,15 @@
               </td>
               <td>
                 <%= user.name %>
+              </td>
+              <td>
+                <p>フォロー数：<%= user.followings.count %></p>
+              </td>
+              <td>
+                <p>フォロワー数：<%= user.followeds.count %></p>
+              </td>
+              <td>
+                <%= render 'follow', user: user %>
               </td>
               <td>
                 <%= link_to 'Show', user_path(user) %>

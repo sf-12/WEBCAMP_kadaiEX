@@ -17,6 +17,23 @@ class User < ApplicationRecord
   has_many :favorites
   has_many :book_comments
 
+  # フォローする関係
+  has_many :follow_relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
+  # @user.followinhgsで、ユーザがフォローしている人の一覧を出す
+  has_many :followings, through: :follow_relationships, source: :followed
+
+  # フォローされる関係
+  has_many :followed_relationships, class_name: 'Relationship', foreign_key: 'followed_id', dependent: :destroy
+  # @user.followedsで、ユーザをフォローしている人の一覧を出す
+  has_many :followeds, through: :followed_relationships, source: :follower
+
+
   # refile用の設定
   attachment :profile_image
+  
+  #  あるユーザを自分がフォローしているか調べる
+  def following?(target_user)
+    self.followings.include?(target_user)
+  end  
+  
 end
