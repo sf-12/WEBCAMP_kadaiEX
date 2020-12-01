@@ -23,4 +23,15 @@ class Book < ApplicationRecord
       return "0".to_s
     end
   end
+
+    # コメントされている数を返す
+  def commented_count
+    if self.book_comments.exists?
+      return self.book_comments.count.to_s
+    else
+      return "0".to_s
+    end
+  end
+
+
 end

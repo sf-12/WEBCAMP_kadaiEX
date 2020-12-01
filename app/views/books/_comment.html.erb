@@ -33,7 +33,7 @@
 </table>
 
 <!--コメント投稿フォーム -->
-<%= form_with model: new_comment, url: book_book_comments_path(book), local: true do |f| %>
+<%= form_with model: new_comment, url: book_book_comments_path(book), method: :post, local: true do |f| %>
   <div class="form-group">
     <label for="comment">New comment</label>
     <textarea class="form-control" id="comment" name='new_comment[comment]'></textarea>
