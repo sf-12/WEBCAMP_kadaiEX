@@ -8,8 +8,8 @@ class FavoritesController < ApplicationController
       @favorite.book_id = params[:book_id]
       @favorite.save
     end
-    # 画面遷移する
-    redirect_to books_path
+    # 元の画面に遷移する
+    redirect_to request.referer
   end
 
   def destroy
@@ -17,13 +17,13 @@ class FavoritesController < ApplicationController
     if Book.find(params[:book_id]).favorited_by?(current_user)
       # 削除する
       @favorite = Favorite.find_by(user_id: params[:id], book_id: params[:book_id])
-      p params[:id] 
+      p params[:id]
       p params[:book_id]
       p @favorite
       @favorite.delete
     end
-    # 画面遷移する
-    redirect_to books_path
+    # 元の画面に遷移する
+    redirect_to request.referer
   end
 
 end
