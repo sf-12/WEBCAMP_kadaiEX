@@ -17,9 +17,6 @@ class FavoritesController < ApplicationController
     if Book.find(params[:book_id]).favorited_by?(current_user)
       # 削除する
       @favorite = Favorite.find_by(user_id: params[:id], book_id: params[:book_id])
-      p params[:id]
-      p params[:book_id]
-      p @favorite
       @favorite.delete
     end
     # 元の画面に遷移する

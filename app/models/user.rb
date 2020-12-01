@@ -15,6 +15,7 @@ class User < ApplicationRecord
   #  他のモデルとの関連付け
   has_many :books, dependent: :destroy
   has_many :favorites
+  has_many :book_comments
 
   # refile用の設定
   attachment :profile_image

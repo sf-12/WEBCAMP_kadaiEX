@@ -8,6 +8,10 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     @user = User.find_by(id: @book.user_id)
+
+    # コメント機能用
+    @book_comments = BookComment.where(book_id: @book.id)
+    @new_comment = BookComment.new
   end
 
   def create

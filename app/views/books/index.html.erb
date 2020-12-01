@@ -22,8 +22,8 @@
           </tr>
         </thead>
         <!-- テーブル中身 -->
-        <% @books.each do |book| %>
-          <tbody>
+        <tbody>
+          <% @books.each do |book| %>
             <tr>
               <!-- 画像 -->
               <td>
@@ -47,8 +47,9 @@
                 <%= render 'favorite', book: book %>
               </td>
             </tr>
-          </tbody>
-        <% end %>
+          <% end %>
+        </tbody>
+
       </table>
     </div>
   </div>
