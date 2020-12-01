@@ -18,25 +18,33 @@
             <th></th>
             <th>Title</th>
             <th>Opinion</th>
+            <th></th>
           </tr>
         </thead>
         <!-- テーブル中身 -->
         <% @books.each do |book| %>
           <tbody>
             <tr>
+              <!-- 画像 -->
               <td>
                 <% user = User.find_by(id: book.user_id) %>
                 <%= link_to user_path(user) do %>
                   <%= attachment_image_tag user, :profile_image, size:'40x40', fallback: "no_image.jpg" %>
                 <% end %>
               </td>
+              <!-- タイトル -->
               <td>
                 <%= link_to book_path(book) do %>
                   <%= book.title %>
                 <% end %>
               </td>
+              <!-- 書評 -->
               <td>
                 <%= book.body %>
+              </td>
+              <!-- いいね -->
+              <td>
+                <%= render 'favorite', book: book %>
               </td>
             </tr>
           </tbody>
