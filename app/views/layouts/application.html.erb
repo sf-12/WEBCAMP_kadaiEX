@@ -17,6 +17,8 @@
       <p id='notice'>
         <%= render 'layouts/notifications' %>
       </p>
+      <!-- 検索機能 -->
+      <%= render 'searches/search', user: @user %>
       <%= yield %>
     </main>
     <footer>
