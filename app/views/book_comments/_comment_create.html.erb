@@ -1,0 +1,8 @@
+<!--コメント投稿フォーム -->
+<%= form_with model: new_comment, url: book_book_comments_path(book), method: :post, remote: true, data: {"turbolinks" => false} do |f| %>
+  <div class="form-group">
+    <label for="comment">New comment</label>
+    <textarea class="form-control" id="comment" name='new_comment[comment]'></textarea>
+  </div>
+  <button type="submit" class="btn btn-secondary">送信</button>
+<% end %>

@@ -55,7 +55,9 @@
           </tbody>
       </table>
       <!-- コメント機能 -->
-      <%= render 'book_comments/comment', book: @book, book_comments: @book_comments, new_comment: @new_comment %>
+      <div class="comment_list">
+        <%= render "book_comments/comment", book: @book, book_comments: @book_comments, new_comment: @new_comment %>
+      </div>
     </div>
   </div>
 </div>
