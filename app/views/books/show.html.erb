@@ -35,7 +35,7 @@
                 <%= render 'favorites/favorite', book: @book %>
               </td>
               <!-- コメント数 -->
-              <td>
+              <td id="comment_num">
                <p>コメント数：<%= @book.commented_count %></p>
               </td>
               <!-- 本人の投稿の場合だけ編集・削除ができる -->

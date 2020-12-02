@@ -3,3 +3,4 @@
 // インスタンス変数は、book_comments_controllerのcreateアクションで定義されたものが使用できる
 // html()以降で部分テンプレートを呼び出し。
 $(".comment_list").html("<%= j(render "book_comments/comment", book: @book, book_comments: @book_comments, new_comment: @new_comment) %>");
+$("#comment_num").html("<p>コメント数：" + "<%= j(@book.commented_count) %>" + "</p>" );
