@@ -31,8 +31,8 @@
                 <%= @book.body %>
               </td>
               <!-- いいね -->
-              <td>
-                <%= render 'books/favorite', book: @book %>
+              <td class=<%= 'favorite' + @book.id.to_s %>>
+                <%= render 'favorites/favorite', book: @book %>
               </td>
               <!-- コメント数 -->
               <td>
@@ -55,7 +55,7 @@
           </tbody>
       </table>
       <!-- コメント機能 -->
-      <%= render 'books/comment', book: @book, book_comments: @book_comments, new_comment: @new_comment %>
+      <%= render 'book_comments/comment', book: @book, book_comments: @book_comments, new_comment: @new_comment %>
     </div>
   </div>
 </div>

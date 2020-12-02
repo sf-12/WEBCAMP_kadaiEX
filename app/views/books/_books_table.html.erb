@@ -30,8 +30,8 @@
           <%= book.body %>
         </td>
         <!-- いいね -->
-        <td>
-          <%= render 'books/favorite', book: book %>
+        <td class=<%= 'favorite' + book.id.to_s %>>
+          <%= render 'favorites/favorite', book: book %>
         </td>
         <!-- コメント数 -->
         <td>
