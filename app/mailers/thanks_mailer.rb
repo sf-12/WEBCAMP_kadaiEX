@@ -1,6 +1,6 @@
 class ThanksMailer < ApplicationMailer
 
-  default from: 'notifications@example.com'
+  default from: ENV['GOOGLE_MAIL_ADDRESS']
 
   def thanks_email(user)
     @user = user
