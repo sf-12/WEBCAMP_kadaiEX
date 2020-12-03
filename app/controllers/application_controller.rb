@@ -10,8 +10,6 @@ class ApplicationController < ActionController::Base
     user_path(resource)
   end
 
-
-
   protected
   def configure_permitted_parameters
     # ユーザ登録時にユーザ名(name) の操作を許可する
