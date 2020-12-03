@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, :controllers => {
+    # controllerのオーバーライド
+    :registrations  => 'users/registrations'
+  }
   root to:'homes#top'
   get 'home/about', to: 'homes#about'
   resources :users, only: [:index, :show, :edit, :update] do

@@ -71,3 +71,5 @@ gem 'font-awesome-sass', '~> 5.13'
 # 住所自動入力用
 gem 'jp_prefecture'
 gem 'jquery-rails'
+# 環境変数用
+gem 'dotenv-rails'
