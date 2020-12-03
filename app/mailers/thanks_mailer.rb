@@ -1,11 +1,10 @@
-class UserMailer < ApplicationMailer
+class ThanksMailer < ApplicationMailer
 
   default from: 'notifications@example.com'
 
-  def welcome_email
-    @user = params[:user]
-    @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: '私の素敵なサイトへようこそ')
-  end  
-  
+  def thanks_email(user)
+    @user = user
+    mail(to: @user.email, subject: '会員登録が完了しました。')
+  end
+
 end
