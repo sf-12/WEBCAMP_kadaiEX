@@ -1,7 +1,7 @@
+# frozen_string_literal: true
+
 class ChatsController < ApplicationController
-
   def create
-
     # JavaScriptに渡すインスタンス変数
     @chats = Chat.where(room_id: params[:room_id])
     @partner_user = User.find(params[:user_id])
@@ -20,5 +20,4 @@ class ChatsController < ApplicationController
   def chat_params
     params.require(:chat).permit(:message)
   end
-
 end

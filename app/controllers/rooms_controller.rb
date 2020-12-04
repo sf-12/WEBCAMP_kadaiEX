@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RoomsController < ApplicationController
   def create
     # room作成
@@ -13,7 +15,6 @@ class RoomsController < ApplicationController
     @partner_user = User.find(params[:user_id])
     @room = Room.find(params[:id])
     @chats = Chat.where(room_id: params[:id])
-    @new_chat =Chat.new
+    @new_chat = Chat.new
   end
-
 end

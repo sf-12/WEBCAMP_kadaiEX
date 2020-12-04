@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   def index
     @users = User.all
@@ -11,7 +13,7 @@ class UsersController < ApplicationController
     # user_roomテーブルからレコードを特定する
     userRoomsCurrentUser = UserRoom.where(user_id: current_user.id)
     userRoomsPartnerUser = UserRoom.where(user_id: @user.id)
-    userRoom = find_user_room(userRoomsCurrentUser,userRoomsPartnerUser)
+    userRoom = find_user_room(userRoomsCurrentUser, userRoomsPartnerUser)
     if userRoom.present?
       # 特定したuser_roomのレコードからroom_idを取得
       @roomId = userRoom.room_id
@@ -22,14 +24,11 @@ class UsersController < ApplicationController
       @room = Room.new
       @RoomExist = false
     end
-
   end
 
   def edit
     @user = User.find(params[:id])
-    if current_user != @user
-      redirect_to user_path(current_user)
-    end
+    redirect_to user_path(current_user) if current_user != @user
   end
 
   def update
@@ -53,13 +52,10 @@ class UsersController < ApplicationController
   def find_user_room(userRooms1, userRooms2)
     userRooms1.each do |ur1|
       userRooms2.each do |ur2|
-        if ur1.room_id == ur2.room_id then
-          return userRoom = UserRoom.find(ur1.id)
-        end
+        return userRoom = UserRoom.find(ur1.id) if ur1.room_id == ur2.room_id
       end
     end
     # レコードがなかった時
-    return nil
+    nil
   end
-
 end

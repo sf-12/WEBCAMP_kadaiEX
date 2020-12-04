@@ -1,5 +1,6 @@
-class BooksController < ApplicationController
+# frozen_string_literal: true
 
+class BooksController < ApplicationController
   def index
     @newbook = Book.new
     @books = Book.all
@@ -28,9 +29,7 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
-    if current_user != User.find(@book.user_id)
-      redirect_to books_path
-    end
+    redirect_to books_path if current_user != User.find(@book.user_id)
   end
 
   def update

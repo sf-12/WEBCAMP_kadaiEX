@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -5,11 +7,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # バリデーション設定
-  validates :name,          presence: true              # 空欄でないこと
+  validates :name,          presence: true # 空欄でないこと
   validates :name,          length: { minimum: 2 }      # 2文字以上
   validates :name,          length: { maximum: 20 }     # 20文字以下
-  validates :name,          uniqueness: true            # 一意であること
-  validates :introduction,  length: { maximum: 50 }     # 50文字以下
+  validates :name,          uniqueness: true # 一意であること
+  validates :introduction,  length: { maximum: 50 } # 50文字以下
 
   #  他のモデルとの関連付け
   has_many :books, dependent: :destroy
@@ -33,7 +35,7 @@ class User < ApplicationRecord
 
   #  あるユーザを自分がフォローしているか調べる
   def following?(target_user)
-    self.followings.include?(target_user)
+    followings.include?(target_user)
   end
 
   # 住所自動入力
@@ -47,5 +49,4 @@ class User < ApplicationRecord
   def prefecture_name=(prefecture_name)
     self.prefecture_code = JpPrefecture::Prefecture.find(name: prefecture_name).code
   end
-
 end

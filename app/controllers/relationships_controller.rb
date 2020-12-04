@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 class RelationshipsController < ApplicationController
   def create
     # ボタン連打しても1回しかフォローできないようにする
-    if not current_user.following?(User.find(params[:user_id]))
+    unless current_user.following?(User.find(params[:user_id]))
       # フォローする
       @relationship = Relationship.new
       @relationship.follower_id = current_user.id

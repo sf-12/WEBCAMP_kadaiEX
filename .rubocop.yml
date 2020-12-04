@@ -1,0 +1,54 @@
+
+
+# 追加した規約ファイルの読込
+# 最新のrubocopは細分化されているので
+# 追加ファイルを読み込まないと解析してくれない箇所がある
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-performance
+
+
+# 全体設定
+AllCops:
+  # 解析対象から除外
+  Exclude:
+    - 'config.ru'
+    - 'bin/**'
+    - 'lib/**'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+
+
+# =========================================================================
+# Style
+# =========================================================================
+# 日本語コメントを許可
+Style/AsciiComments:
+  Enabled: false
+
+# クラスのコメント必須を無視
+Style/Documentation:
+  Enabled: false
+
+# モジュール名::クラス名の定義を許可
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+
+# =========================================================================
+# RSpec
+# =========================================================================
+
+# subjectに名前をつけない使用を許可
+RSpec/NamedSubject:
+  Enabled: false
+  
+# contextの冒頭が 'when', 'with', 'without'以外も許可
+# そもそも日本語で書く場合は対応できないので。
+RSpec/ContextWording:
+  Enabled: false
+  
+  
+  

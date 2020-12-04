@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class BookCommentsController < ApplicationController
   def create
     # 登録する
@@ -27,5 +29,4 @@ class BookCommentsController < ApplicationController
   def comment_params
     params.require(:new_comment).permit(:comment)
   end
-
 end
