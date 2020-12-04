@@ -73,3 +73,5 @@ gem 'jp_prefecture'
 gem 'jquery-rails'
 # 環境変数用
 gem 'dotenv-rails'
+# バッチ定期処理用
+gem 'whenever', require: false
