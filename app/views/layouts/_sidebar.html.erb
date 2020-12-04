@@ -28,11 +28,33 @@
         <% end %>
       </th>
     </tr>
+    <!-- フォロー機能 -->
     <tr>
       <th>
         <%= render 'layouts/sidebar_follow', user: user %>
       </th>
     </tr>
+    <!-- チャット機能 -->
+    <!-- 自分以外のユーザの場合のみチャットボタンを表示 -->
+    <% unless current_user.id == user.id %>
+      <tr>
+        <th>
+          <% if @RoomExist %>
+          <!-- チャットルームを作成済みの場合 -->
+            <!-- チャットルームshowページへ移動-->
+            <%= link_to user_room_path(user.id, @roomId), data: {"turbolinks" => false} do %>
+              <div class='btn btn-success'>chatする</div>
+            <% end %>
+          <% else %>
+          <!-- チャットルームを作成していない場合 -->
+            <!-- チャットルームをcreateしてからshowページへ移動-->
+            <%= link_to user_rooms_path(user.id), method: :post, data: {"turbolinks" => false} do %>
+              <div class='btn btn-success'>chatする</div>
+            <% end %>
+          <% end %>
+        </th>
+      </tr>
+    <% end %>
   </tbody>
 </table>
 

@@ -11,11 +11,12 @@ class User < ApplicationRecord
   validates :name,          uniqueness: true            # 一意であること
   validates :introduction,  length: { maximum: 50 }     # 50文字以下
 
-
   #  他のモデルとの関連付け
   has_many :books, dependent: :destroy
   has_many :favorites
   has_many :book_comments
+  has_many :user_rooms, dependent: :destroy
+  has_many :chats, dependent: :destroy
 
   # フォローする関係
   has_many :follow_relationships, class_name: 'Relationship', foreign_key: 'follower_id', dependent: :destroy
@@ -27,7 +28,6 @@ class User < ApplicationRecord
   # @user.followedsで、ユーザをフォローしている人の一覧を出す
   has_many :followeds, through: :followed_relationships, source: :follower
 
-
   # refile用の設定
   attachment :profile_image
 
@@ -36,7 +36,7 @@ class User < ApplicationRecord
     self.followings.include?(target_user)
   end
 
-
+  # 住所自動入力
   include JpPrefecture
   jp_prefecture :prefecture_code
 
