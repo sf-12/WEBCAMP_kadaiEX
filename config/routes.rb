@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     resources :relationships, only: [:create, :destroy]
     get 'relationships/following', to: 'relationships#following'
     get 'relationships/follower', to: 'relationships#follower'
+
+    # チャット機能
+    resources :rooms, only: [ :show, :create] do
+      resources :chats, only: [ :create]
+    end
   end
 
   resources :books, only: [:index, :show, :create, :edit, :update, :destroy] do

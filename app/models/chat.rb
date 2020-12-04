@@ -4,7 +4,7 @@ class Chat < ApplicationRecord
   validates :message, presence: true  # 空欄でないこと
 
   #  他のモデルとの関連付け
-  has_many :user_id, dependent: :destroy
-  has_many :room_id, dependent: :destroy
+  has_many :users, dependent: :destroy
+  has_many :rooms, dependent: :destroy
 
 end
