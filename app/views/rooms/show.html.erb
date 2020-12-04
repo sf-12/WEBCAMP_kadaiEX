@@ -1,36 +1,11 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-10'>
-      <h1><%= @partner_user.name %>さんとのチャット</h1>
-
-      <table class='table table-hover table-inverse table-borderless'>
-        <!-- チャット内容の表示 -->
-        <thead>
-          <tr>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @chats.each do |chat| %>
-          <tr>
-            <% if chat.user_id == @partner_user.id %>
-            <!-- 相手の投稿 -->
-              <td><%= chat.message %></td>
-              <td></td>
-            <% else %>
-            <!-- 自分の投稿 -->
-              <td></td>
-              <td><%= chat.message %></td>
-            <% end %>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
-      <!-- チャットを投稿 -->
-      <%= form_with model: @new_chat, url: user_room_chats_path(@partner_user.id, @room.id), local: true do |f| %>
-        <%= f.text_field :message %>
-      <% end %>
+      <h2><%= @partner_user.name %>さんとのチャット</h2>
+      <!-- チャット機能 -->
+      <div id="chat_function">
+        <%= render 'rooms/chat', chats: @chats, partner_user: @partner_user, new_chat: @new_chat, room: @room %>
+      </div>
     </div>
   </div>
 </div>

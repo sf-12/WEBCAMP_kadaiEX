@@ -42,13 +42,13 @@
           <% if @RoomExist %>
           <!-- チャットルームを作成済みの場合 -->
             <!-- チャットルームshowページへ移動-->
-            <%= link_to user_room_path(user.id, @roomId) do %>
+            <%= link_to user_room_path(user.id, @roomId), data: {"turbolinks" => false} do %>
               <div class='btn btn-success'>chatする</div>
             <% end %>
           <% else %>
           <!-- チャットルームを作成していない場合 -->
             <!-- チャットルームをcreateしてからshowページへ移動-->
-            <%= link_to user_rooms_path(user.id), method: :post do %>
+            <%= link_to user_rooms_path(user.id), method: :post, data: {"turbolinks" => false} do %>
               <div class='btn btn-success'>chatする</div>
             <% end %>
           <% end %>
