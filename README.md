@@ -1,24 +1,40 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# 概要
+このWebアプリケーションはDMM WEB CAMP の応用課題で実装したものです。
+おすすめの書籍を投稿したり、"いいね"やコメントをすることができます。
 
-Things you may want to cover:
+# 機能一覧
+- ログイン、ログアウト機能
+- 新規登録時のウェルカムメール送信機能
+- おすすめ書籍の投稿機能
+- 書籍に対する"いいね"機能
+- 書籍に対するコメント機能
+- ユーザフォロー機能
+- ユーザ間のDM機能
+- ユーザへの定期メール送信機能
+- ユーザ・投稿書籍の検索機能
 
-* Ruby version
+# 使用技術
+## フロントエンド
+- HTML/CSS
+- JavaScript
+- jQuwry
+- Ajax
+- Bootstrap
 
-* System dependencies
+## バックエンド
+- Ruby
+- Ruby on Rails
 
-* Configuration
+## その他使用技術
+- Git
+- Github
+- Rubocop
+- Rspec
+- 非同期通信（フォロー機能、いいね機能、DM内の投稿機能 等）
+- Action Mailer (メール送信)
+- whenever（定時処理）
+- jpostal (郵便番号から住所を自動入力)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 開発環境
+- Cloud9
