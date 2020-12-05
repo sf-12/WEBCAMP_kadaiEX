@@ -23,6 +23,7 @@
 - jQuwry
 - Ajax
 - Bootstrap
+- slim
 
 ### バックエンド
 - Ruby
@@ -33,6 +34,8 @@
 - Github
 - Rubocop
 - Rspec
+- Factory bot (テストデータ準備)
+- faker (テストデータ生成)
 - 非同期通信（フォロー機能、いいね機能、DM内の投稿機能 等）
 - Action Mailer (メール送信)
 - whenever（定時処理）
