@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-md-10
+      h2
+        = @partner_user.name
+        | さんとのチャット
+      #chat_function
+        = render 'rooms/chat', chats: @chats, partner_user: @partner_user, new_chat: @new_chat, room: @room

@@ -1,0 +1,9 @@
+.error_explanation
+  - if value.errors.any?
+    h3
+      = value.errors.count
+      |  error prohibited this obj from being saved:
+    ul
+      - value.errors.full_messages.each do |message|
+        li
+          = message

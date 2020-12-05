@@ -1,0 +1,5 @@
+- if not current_user.id == user.id
+  - if current_user.following?(user)
+    = link_to "フォロー外す", user_relationship_path(user.id, current_user.id), method: :delete
+  - else
+    = link_to "フォローする", user_relationships_path(user.id), method: :post

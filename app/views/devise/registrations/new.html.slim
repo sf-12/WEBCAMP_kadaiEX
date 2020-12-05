@@ -1,0 +1,48 @@
+= render 'layouts/error_messages', value: @user
+.container
+  .row
+    .col-sm-12.col-md-8.col-lg-5.px-5.px-sm-0
+      h2
+        | Sign up
+      = form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', remote: true do |f|
+        = render "devise/shared/error_messages", resource: resource
+        .field
+          = f.label :name
+          br
+          = f.text_field :name, autofocus: true
+        .field
+          = f.label :email
+          br
+          = f.email_field :email, autocomplete: "email"
+        .field
+          = f.label :postal_code
+          br
+          = f.text_field :postcode
+        .field
+          = f.label :prefecture_code
+          br
+          = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, class: "address"
+        .field
+          = f.label :city
+          br
+          = f.text_field :address_city
+        .field
+          = f.label :street
+          br
+          = f.text_field :address_street
+        .field
+          = f.label :password
+          - if @minimum_password_length
+            em
+              | (
+              = @minimum_password_length
+              |  characters minimum)
+          br
+          = f.password_field :password, autocomplete: "new-password"
+        .field
+          = f.label :password_confirmation
+          br
+          = f.password_field :password_confirmation, autocomplete: "new-password"
+        .actions
+          = f.submit "Sign up",class:'btn btn-sm btn-success'
+      = render "devise/shared/links"

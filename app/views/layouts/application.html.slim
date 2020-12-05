@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    title
+      | Bookers2
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  body
+    header
+      = render 'layouts/header'
+    main
+      p#notice
+        = render 'layouts/notifications'
+      = render 'searches/search', user: @user
+      = yield
+    footer
+      = render 'layouts/footer'

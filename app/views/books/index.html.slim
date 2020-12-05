@@ -1,0 +1,9 @@
+.container
+  = render 'layouts/error_messages', value: @newbook
+  .row
+    .col-md-3
+      = render 'layouts/sidebar', user:current_user, book: @newbook
+    .col-md-8.offset-md-1
+      h2
+        | Books
+      = render 'books/books_table', books: @books

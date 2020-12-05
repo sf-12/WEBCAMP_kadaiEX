@@ -1,0 +1,18 @@
+table.table.table-hover.table-inverse.table-borderless
+  thead
+    tr
+      th
+      th
+  tbody
+    - chats.each do |chat|
+      tr
+        - if chat.user_id == partner_user.id
+          td
+            = chat.message
+          td
+        - else
+          td
+          td
+            = chat.message
+= form_with model: new_chat, url: user_room_chats_path(partner_user.id, room.id), remote: true do |f|
+  = f.text_field :message, id: "input_form"
