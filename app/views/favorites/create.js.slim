@@ -1,0 +1,5 @@
+| // View → Controller → ここ　の順で処理される // 冒頭のクラス名で、jsで更新する箇所を特定する // インスタンス変数は、favorites_controllerのcreateアクションで定義されたものが使用できる // html()以降で部分テンプレートを呼び出し。 $(".favorite" + 
+= @book.id
+| ).html("
+= j(render 'favorites/favorite', book: @book)
+| "); 

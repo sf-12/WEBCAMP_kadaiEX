@@ -1,0 +1,57 @@
+h2
+  | User info
+= attachment_image_tag user, :profile_image, size:'100x100', fallback: "no_image.jpg"
+table.table
+  tbody
+    tr
+    tr
+      th
+        | Name
+      th
+        = user.name
+    tr
+      th
+        | Introduction
+      th
+        = user.introduction
+    tr
+      th
+        | Follows
+      th
+        = link_to user_relationships_following_path(user.id) do
+          = user.followings.count
+    tr
+      th
+        | Followers
+      th
+        = link_to user_relationships_follower_path(user.id) do
+          = user.followeds.count
+    tr
+      th
+        = render 'layouts/sidebar_follow', user: user
+    - unless current_user.id == user.id
+      tr
+        th
+          - if @RoomExist
+            = link_to user_room_path(user.id, @roomId), data: {"turbolinks" => false} do
+              .btn.btn-success
+                | chatする
+          - else
+            = link_to user_rooms_path(user.id), method: :post, data: {"turbolinks" => false} do
+              .btn.btn-success
+                | chatする
+.row
+  = link_to '', edit_user_path(user), class:'btn btn-outline-secondary btn-block fas fa-user-cog'
+h2.mt-3
+  | New book
+= form_with model: book, url: books_path, local: true do |f|
+  .form-group
+    label[for="book_title"]
+      | Title
+    input#book_title.form-control[type="text" name="book[title]"]
+  .form-group
+    label[for="book_opinion"]
+      | Opinion
+    textarea#book_opinion.form-control[name="book[body]"]
+  button.btn.btn-success[type="submit"]
+    | Create Book

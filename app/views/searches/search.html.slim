@@ -1,0 +1,14 @@
+.container
+  .row
+    - if @search_target == "User"
+      h2
+        | Users search for '
+        = @search_name
+        | '
+      = render 'users/users_table', users: @results
+    - else
+      h2
+        | Books search for '
+        = @search_name
+        | '
+      = render 'books/books_table', books: @results

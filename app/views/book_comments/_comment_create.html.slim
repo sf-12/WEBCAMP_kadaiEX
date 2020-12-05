@@ -1,0 +1,7 @@
+= form_with model: new_comment, url: book_book_comments_path(book), method: :post, remote: true, data: {"turbolinks" => false} do |f|
+  .form-group
+    label[for="comment"]
+      | New comment
+    textarea#comment.form-control[name="new_comment[comment]"]
+  button.btn.btn-secondary[type="submit"]
+    | 送信

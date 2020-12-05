@@ -1,6 +1,0 @@
-// View → Controller → ここ　の順で処理される
-// 冒頭のクラス名で、jsで更新する箇所を特定する
-// インスタンス変数は、chats_controllerのcreateアクションで定義されたものが使用できる
-// html()以降で部分テンプレートを呼び出し。
-$("#chat_function").html("<%= j(render 'rooms/chat', chats: @chats, partner_user: @partner_user, new_chat: @new_chat, room: @room) %>");
-$("#input_form").focus();

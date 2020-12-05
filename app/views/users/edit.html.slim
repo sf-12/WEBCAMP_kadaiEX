@@ -1,0 +1,25 @@
+.container
+  .row
+    .col-sm-12.col-md-8.col-lg-5.px-5.px-sm-0.mx-auto
+      h2
+        | User info
+      = render 'layouts/error_messages', value: @user
+      = form_with model: @user, local: true do |f|
+        .form-group
+          label[for="user_name"]
+            | Name
+          |  <input type="text" class="form-control" id="user_name" name='user[name]' value=
+          = @user.name
+          |  > 
+        .form-group
+          label[for="user_profile_image"]
+            | Image
+          input#profile_image.form-control-file[type="file" name="user[profile_image]"]
+        .form-group
+          label[for="user_introduction"]
+            | Introduction
+          textarea#user_introduction.form-control[name="user[introduction]"]
+            = @user.introduction
+        .form-group
+          button.btn.btn-secondary[type="submit"]
+            | Update User

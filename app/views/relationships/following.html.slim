@@ -1,0 +1,30 @@
+.container
+  .row
+    .col-md-12
+      h2
+        | Follow Users
+      table.table.table-hover.table-inverse
+        thead
+          tr
+            th
+              | image
+            th
+              | name
+            th[colspan="3"]
+        - @follows.each do |follow|
+          tbody
+            tr
+              td
+                = attachment_image_tag follow, :profile_image, size:'40x40', fallback: "no_image.jpg"
+              td
+                = follow.name
+              td
+                p
+                  | フォロー数：
+                  = follow.followings.count
+              td
+                p
+                  | フォロワー数：
+                  = follow.followeds.count
+              td
+                = link_to 'Show', user_path(follow)

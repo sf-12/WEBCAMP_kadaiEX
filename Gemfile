@@ -83,3 +83,9 @@ gem 'jquery-rails'
 gem 'dotenv-rails'
 # バッチ定期処理用
 gem 'whenever', require: false
+# テンプレートエンジンslimの導入
+gem 'slim-rails'
+gem 'html2slim'
+# エラー解消のためバージョンを指定
+# warning: parser/current is loading parser/ruby26, which recognizes
+gem 'parser', '~> 2.6.5.0'

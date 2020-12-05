@@ -1,0 +1,40 @@
+= render 'layouts/error_messages', value: @new_comment
+.container
+  .row
+    .col-md-3
+      = render 'layouts/sidebar', user: @user, book: @newbook
+    .col-md-8.offset-md-1
+      h2
+        | Book detail
+      table.table.table-hover.table-inverse
+        tbody
+          tr
+            td
+              = link_to user_path(@user) do
+                = attachment_image_tag @user, :profile_image, size:'40x40', fallback: "no_image.jpg"
+                br
+                = @user.name
+            td
+              = link_to book_path(@book) do
+                = @book.title
+            td
+              = @book.body
+            |  <td class=
+            = 'favorite' + @book.id.to_s
+            | > 
+            = render 'favorites/favorite', book: @book
+            td#comment_num
+              p
+                | コメント数：
+                = @book.commented_count
+            - if @book.user_id == current_user.id
+              td
+                = link_to edit_book_path(@book) do
+                  .btn.btn-success
+                    | Edit
+              td
+                = link_to book_path(@book), method: :delete do
+                  .btn.btn-danger
+                    | Destroy
+      .comment_list
+        = render "book_comments/comment", book: @book, book_comments: @book_comments, new_comment: @new_comment
