@@ -20,7 +20,7 @@
 ### フロントエンド
 - HTML/CSS
 - JavaScript
-- jQuwry
+- jQury
 - Ajax
 - Bootstrap
 - slim
