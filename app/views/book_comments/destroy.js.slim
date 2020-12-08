@@ -1,8 +1,6 @@
-| // View → Controller → ここ　の順で処理される // 冒頭のクラス名で、jsで更新する箇所を特定する // インスタンス変数は、book_comments_controllerのdestroyアクションで定義されたものが使用できる // html()以降で部分テンプレートを呼び出し。 $(".comment_list").html("
-= j(render "book_comments/comment", book: @book, book_comments: @book_comments, new_comment: @new_comment)
-| "); $("#comment_num").html("
-p
-  | コメント数：" + "
-  = j(@book.commented_count)
-  | " + "
-| " ); 
+/ View → Controller → ここ　の順で処理される
+/ 冒頭のクラス名で、jsで更新する箇所を特定する
+/ インスタンス変数は、book_comments_controllerのdestroyアクションで定義されたものが使用できる
+/ html()以降で部分テンプレートを呼び出し。
+| $(".comment_list").html("#{j(render "book_comments/comment", book: @book, book_comments: @book_comments, new_comment: @new_comment)}");
+| $("#comment_num").html("コメント数：" + "#{j(@book.commented_count)}");

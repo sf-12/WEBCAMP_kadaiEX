@@ -9,6 +9,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @books = Book.where(user_id: params[:id])
 
+    p "==============================================================================================="
+    p @user
+
+
     # チャット機能
     # user_roomテーブルからレコードを特定する
     userRoomsCurrentUser = UserRoom.where(user_id: current_user.id)
@@ -28,6 +32,11 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+
+    p "==============================================================================================="
+    p @user
+
+
     redirect_to user_path(current_user) if current_user != @user
   end
 

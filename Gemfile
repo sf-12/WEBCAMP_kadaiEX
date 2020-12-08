@@ -89,3 +89,7 @@ gem 'html2slim'
 # エラー解消のためバージョンを指定
 # warning: parser/current is loading parser/ruby26, which recognizes
 gem 'parser', '~> 2.6.5.0'
+
+group :production do
+  gem 'mysql2'
+end
