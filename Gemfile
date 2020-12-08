@@ -92,4 +92,5 @@ gem 'parser', '~> 2.6.5.0'
 
 group :production do
   gem 'mysql2'
+  gem 'listen', '>= 3.0.5', '< 3.2'
 end
