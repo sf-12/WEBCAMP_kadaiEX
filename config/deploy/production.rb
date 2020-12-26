@@ -63,7 +63,7 @@
 #   }
 
 # デプロイ先サーバの情報
-server "46.51.226.183/", roles: %w{app db web}
+server "46.51.226.183", roles: %w{app db web}
 
 # デプロイ先のディレクトリ
 set :deploy_to, "/home/ec2-user/capistrano/#{fetch(:application)}"

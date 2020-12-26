@@ -57,6 +57,7 @@ group :development do
   gem 'capistrano-bundler'
   gem 'capistrano-rbenv'
   gem 'capistrano-rbenv-vars'
+  gem 'capistrano3-puma'
 
   # 静的解析ツールrubocop導入
   gem 'rubocop', require: false
