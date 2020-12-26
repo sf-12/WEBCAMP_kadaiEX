@@ -23,8 +23,11 @@ set :user_sudo, false
 # ログを詳細に出力
 set :log_level, :debug
 
-append :linked_files, "config/master.key" #無いとconfig/credentials.yml.incがひらけずエラーになっるぽい
+#config/credentials.yml.incの参照に使用
+append :linked_files, "config/master.key"
 
+# rubyのバージョンを指定
+set :rbenv_ruby, '2.6.3'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
@@ -70,8 +73,8 @@ namespace :deploy do
   task :confirm do
     on roles(:app) do
       puts "This stage is '#{fetch(:stage)}'. Deploying branch is '#{fetch(:branch)}'."
-      puts 'Are you sure? [y/n]'
-      ask :answer, 'n'
+      puts 'Are you sure?'
+      ask :answer, '[y/n]'
       if fetch(:answer) != 'y'
         puts 'deploy stopped'
         exit
