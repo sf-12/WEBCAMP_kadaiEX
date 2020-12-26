@@ -20,6 +20,11 @@ set :branch, 'master'
 # sudoをコマンドにつけるか設定する
 set :user_sudo, false
 
+# ログを詳細に出力
+set :log_level, :debug
+
+append :linked_files, "config/master.key" #無いとconfig/credentials.yml.incがひらけずエラーになっるぽい
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -53,3 +58,13 @@ set :user_sudo, false
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
+
+# ----------------------------------------------------------
+# タスクの記入　
+# ----------------------------------------------------------
+
+# task :list do
+#   on roles(:web) do |host|
+#     execute "ls"
+#   end
+# end
