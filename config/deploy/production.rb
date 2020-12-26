@@ -1,3 +1,5 @@
+# このファイルにはproductionステージ固有の設定を書く
+
 # server-based syntax
 # ======================
 # Defines a single server with a list of roles and multiple properties.
@@ -60,12 +62,17 @@
 #     # password: "please use keys"
 #   }
 
-server '46.51.226.183',
+# デプロイ先サーバの情報
+server "46.51.226.183/", roles: %w{app db web}
+
+# デプロイ先のディレクトリ
+set :deploy_to, "/home/ec2-user/capistrano/#{fetch(:application)}"
+
+# SSHの設定情報
+set :ssh_options, {
   user: 'ec2-user',
-  roles: %w{app db web},
-  ssh_options: {
-    # port: 22,
-    keys: %w(~/.ssh/webcamp-bookers2-key.pem),
-    forward_agent: true,
-    auth_methods: %w(publickey)
-  }
+  port: 22,
+  forward_agent: true,
+  keys: '~/.ssh/webcamp-bookers2-key.pem',
+  auth_methods: %w(publickey)
+}

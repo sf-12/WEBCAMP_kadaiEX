@@ -1,15 +1,31 @@
+# このファイルには全ステージ共通の設定を書く
+
 # config valid for current version and patch releases of Capistrano
+# Capistranoのバージョンを固定
 lock "~> 3.14.1"
 
+# ----------------------------------------------------------
+# 変数のセット → setしておくとfetchで参照できるようになる
+# ----------------------------------------------------------
+
+# アプリケーションの名前
 set :application, "WEBCAMP_kadaiEX"
-set :repo_url, "https://github.com/sf-12/WEBCAMP_kadaiEX.git"
+
+# デプロイ元となるGithubリポジトリの名前
+set :repo_url, "git@github.com:sf-12/WEBCAMP_kadaiEX.git"
+
+# リポジトリのブランチを指定
+set :branch, 'master'
+
+# sudoをコマンドにつけるか設定する
+set :user_sudo, false
+
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/ec2-user/WEBCAMP_kadaiEX"
-set :rbenv_ruby, '2.6.3'
+# set :deploy_to, "/var/www/my_app_name"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
@@ -22,8 +38,8 @@ set :rbenv_ruby, '2.6.3'
 # set :pty, true
 
 # Default value for :linked_files is []
-# append :linked_files, %w{config/master.key}
-append :linked_files, "config/master.key"
+# append :linked_files, "config/database.yml"
+
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
@@ -35,7 +51,7 @@ append :linked_files, "config/master.key"
 # set :local_user, -> { `git config user.name`.chomp }
 
 # Default value for keep_releases is 5
-set :keep_releases, 5
+# set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
