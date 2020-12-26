@@ -20,6 +20,7 @@ set :branch, 'master'
 # sudoをコマンドにつけるか設定する
 set :user_sudo, false
 
+
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 
@@ -38,6 +39,7 @@ set :user_sudo, false
 
 # Default value for :linked_files is []
 # append :linked_files, "config/database.yml"
+
 
 # Default value for linked_dirs is []
 # append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "public/system"
