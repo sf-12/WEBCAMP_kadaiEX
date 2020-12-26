@@ -5,4 +5,3 @@ jobs:
       - image: cimg/node:lts
     steps: # stepsキーが正しい
       - run: echo "hello world"
-      - ruby/bundle-install
