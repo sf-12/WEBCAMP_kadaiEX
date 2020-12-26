@@ -51,6 +51,13 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
+  # 自動デプロイ用
+  gem 'capistrano'
+  gem 'capistrano-rails'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-rbenv-vars'
+
   # 静的解析ツールrubocop導入
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
